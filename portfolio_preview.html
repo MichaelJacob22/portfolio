@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Michael Jacob | AI/ML Engineer in Progress &amp; ECE Student</title>
+  <meta name="description" content="Portfolio of Michael Jacob. Exploring Machine Learning, Computer Vision (YOLO/OpenCV), and AI-powered applications.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            dark: {
+              950: '#070A11',
+              900: '#0B0F19',
+              850: '#111827',
+              800: '#161F33',
+              750: '#1A243B',
+              700: '#1F293D',
+            },
+            cyan: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+            }
+          },
+          boxShadow: {
+            'glow-cyan': '0 0 25px -5px rgba(6, 182, 212, 0.25)',
+            'card': '0 4px 20px -2px rgba(0, 0, 0, 0.5)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: #0B0F19;
+      color: #F1F5F9;
+    }
+    .bg-grid {
+      background-size: 32px 32px;
+      background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+    }
+    .text-gradient {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      background-image: linear-gradient(to right, #22d3ee, #3b82f6, #a78bfa);
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #070A11; }
+    ::-webkit-scrollbar-thumb { background: #1F293D; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #06B6D4; }
+  </style>
+</head>
+<body class="bg-dark-900 text-slate-100 antialiased min-h-screen flex flex-col selection:bg-cyan-500 selection:text-dark-950">
+
+  <!-- NAVBAR -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-dark-900/90 backdrop-blur-md border-b border-dark-700/80 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Brand -->
+        <a href="#home" class="flex items-center gap-2.5 text-slate-100 hover:text-cyan-400 transition-colors group">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-mono font-bold text-dark-950 text-sm shadow-glow-cyan">
+            MJ
+          </div>
+          <div class="flex flex-col">
+            <span class="font-extrabold tracking-tight text-slate-100 group-hover:text-cyan-400 text-base leading-tight">
+              Michael Jacob
+            </span>
+            <span class="text-[11px] font-mono text-cyan-400 tracking-wider uppercase">
+              AI / ML &bull; ECE
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <div class="hidden md:flex items-center gap-1.5 lg:gap-2">
+          <a href="#home" class="nav-link px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-800 transition-colors">Home</a>
+          <a href="#about" class="nav-link px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-800 transition-colors">About</a>
+          <a href="#skills" class="nav-link px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-800 transition-colors">Skills</a>
+          <a href="#projects" class="nav-link px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-800 transition-colors">Projects</a>
+          <a href="#education" class="nav-link px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-800 transition-colors">Education</a>
+          <a href="#journey" class="nav-link px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-800 transition-colors">Journey</a>
+          <a href="#contact" class="nav-link px-3 py-1.5 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-dark-800 transition-colors">Contact</a>
+
+          <a href="#resume" class="ml-3 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-cyan-500 to-blue-600 text-dark-950 hover:brightness-110 shadow-sm transition-all">
+            <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+            <span>Resume</span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Toggle -->
+        <div class="flex md:hidden items-center gap-2">
+          <a href="#resume" class="px-2.5 py-1 rounded text-xs font-semibold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">
+            Resume
+          </a>
+          <button id="mobile-menu-btn" class="p-2 rounded-lg bg-dark-800 text-slate-300 hover:text-white border border-dark-700">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden bg-dark-900 border-b border-dark-700 px-4 pt-3 pb-5 space-y-2">
+      <a href="#home" class="block px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-dark-800 hover:text-white">Home</a>
+      <a href="#about" class="block px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-dark-800 hover:text-white">About</a>
+      <a href="#skills" class="block px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-dark-800 hover:text-white">Skills</a>
+      <a href="#projects" class="block px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-dark-800 hover:text-white">Projects</a>
+      <a href="#education" class="block px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-dark-800 hover:text-white">Education</a>
+      <a href="#journey" class="block px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-dark-800 hover:text-white">Journey</a>
+      <a href="#contact" class="block px-3.5 py-2 rounded-lg text-sm font-medium text-slate-300 hover:bg-dark-800 hover:text-white">Contact</a>
+    </div>
+  </nav>
+
+  <!-- MAIN SECTIONS -->
+  <main class="flex-1">
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-grid opacity-30 pointer-events-none"></div>
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Narrative -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-medium shadow-sm">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Seeking AI/ML &amp; Software Engineering Internships</span>
+            </div>
+
+            <div>
+              <p class="text-base sm:text-lg font-mono text-cyan-400 tracking-wide mb-1 font-semibold">
+                Hi, I'm Michael Jacob.
+              </p>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-100 tracking-tight leading-[1.12]">
+                Building intelligent solutions with <span class="text-gradient">AI &amp; Machine Learning.</span>
+              </h1>
+            </div>
+
+            <p class="text-base sm:text-lg text-slate-400 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              I'm an Electronics and Communication Engineering student exploring Machine Learning, computer vision, and AI-powered applications. I enjoy turning technical ideas into practical projects.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 font-mono text-xs text-slate-300">
+              <span class="px-2.5 py-1 rounded-md bg-dark-850 border border-dark-750 flex items-center gap-1.5">
+                <i data-lucide="eye" class="w-3.5 h-3.5 text-cyan-400"></i> YOLOv5 &bull; OpenCV
+              </span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-850 border border-dark-750 flex items-center gap-1.5">
+                <i data-lucide="cpu" class="w-3.5 h-3.5 text-blue-400"></i> Edge AI &bull; TFLite
+              </span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-850 border border-dark-750 flex items-center gap-1.5">
+                <i data-lucide="database" class="w-3.5 h-3.5 text-violet-400"></i> Django REST &bull; Redis
+              </span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+              <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-dark-950 font-bold text-sm hover:brightness-110 shadow-glow-cyan transition-all">
+                <span>Explore My Projects</span>
+                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+              </a>
+
+              <a href="#resume" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-dark-800 hover:bg-dark-750 text-slate-200 hover:text-white border border-dark-700 hover:border-cyan-500/40 font-semibold text-sm transition-all">
+                <i data-lucide="file-text" class="w-4 h-4 text-cyan-400"></i>
+                <span>Download Resume</span>
+              </a>
+            </div>
+
+            <!-- Socials -->
+            <div class="pt-2 flex items-center justify-center lg:justify-start gap-3">
+              <span class="text-xs font-mono text-slate-500 uppercase tracking-wider">Connect:</span>
+              <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-dark-800 border border-dark-700 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all">
+                <i data-lucide="github" class="w-4 h-4"></i>
+              </a>
+              <a href="https://linkedin.com/in/michaeljacobd" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-dark-800 border border-dark-700 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all">
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+              </a>
+              <a href="mailto:michaeljacobd2211@gmail.com" class="p-2.5 rounded-lg bg-dark-800 border border-dark-700 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Technical Schematic Preview -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="w-full max-w-md rounded-2xl bg-dark-850 border border-dark-700/80 p-6 shadow-2xl relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300">
+              
+              <div class="flex items-center justify-between pb-4 border-b border-dark-800 text-xs font-mono text-slate-400">
+                <div class="flex items-center gap-2">
+                  <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
+                  <span class="text-slate-300 font-semibold ml-1">michael_jacob.py</span>
+                </div>
+                <span class="text-cyan-400 font-semibold">status: active</span>
+              </div>
+
+              <div class="mt-4 space-y-3 font-mono text-xs">
+                <div class="flex items-center gap-3">
+                  <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/30 border border-cyan-500/40 flex items-center justify-center text-cyan-300 font-bold text-xl shadow-glow-cyan">
+                    MJ
+                  </div>
+                  <div>
+                    <div class="text-sm font-bold text-slate-200">Michael Jacob</div>
+                    <div class="text-xs text-cyan-400">B.E. Electronics &amp; Comm. (2024–2028)</div>
+                    <div class="text-[11px] text-slate-400">Sri Shakthi Inst. of Engg. &amp; Tech.</div>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-dark-800 space-y-2">
+                  <div class="text-[11px] text-slate-400 flex items-center justify-between mt-3">
+                    <span>ARCHITECTURE FOCUS</span>
+                    <span class="text-cyan-400">EDGE TO BACKEND</span>
+                  </div>
+
+                  <div class="grid grid-cols-3 gap-2 text-center text-[10px] mt-2">
+                    <div class="p-2 rounded-lg bg-dark-900 border border-dark-800">
+                      <div class="text-cyan-400 font-bold">INPUT</div>
+                      <div class="text-slate-400 mt-0.5">Video / Stream</div>
+                    </div>
+                    <div class="p-2 rounded-lg bg-dark-900 border border-cyan-500/30">
+                      <div class="text-blue-400 font-bold">MODEL</div>
+                      <div class="text-slate-400 mt-0.5">YOLO / TFLite</div>
+                    </div>
+                    <div class="p-2 rounded-lg bg-dark-900 border border-dark-800">
+                      <div class="text-violet-400 font-bold">OUTPUT</div>
+                      <div class="text-slate-400 mt-0.5">REST API / Alert</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-lg bg-dark-900/80 border border-dark-800 text-[11px] space-y-1 mt-3">
+                  <div class="text-slate-400 flex justify-between">
+                    <span>Academic Standing:</span>
+                    <span class="text-emerald-400 font-bold">CGPA 8.43 / 10.0</span>
+                  </div>
+                  <div class="text-slate-400 flex justify-between">
+                    <span>Core Discipline:</span>
+                    <span class="text-slate-300">Electronics &amp; Software</span>
+                  </div>
+                  <div class="text-slate-400 flex justify-between">
+                    <span>Target Roles:</span>
+                    <span class="text-cyan-400">AI / ML / SWE Intern</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-20 relative bg-dark-900/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            About Me
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            Bridging Electronics, Software &amp; Intelligence
+          </h2>
+          <p class="mt-3 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Understanding how hardware signals and deep learning algorithms come together to solve practical problems.
+          </p>
+          <div class="mt-4 h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-7 space-y-5 text-slate-300 leading-relaxed text-base">
+            <p>
+              I am an undergraduate in Electronics and Communication Engineering (2024–2028) at Sri Shakthi Institute of Engineering and Technology, affiliated with Anna University.
+            </p>
+            <p>
+              My focus lies at the convergence of hardware, software, and intelligence. I am intrigued by how mathematical models can extract actionable meaning from video streams, and how lightweight AI models can run on low-power embedded processors.
+            </p>
+            <p>
+              Rather than treating machine learning as an abstract concept, I prioritize building end-to-end prototypes—from video frame acquisition and preprocessing to model inference and clean backend APIs.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+              <div class="p-4 rounded-xl bg-dark-850 border border-dark-700/80">
+                <div class="flex items-center gap-2 text-cyan-400 text-xs font-mono font-bold mb-1">
+                  <i data-lucide="graduation-cap" class="w-4 h-4"></i> DEGREE
+                </div>
+                <div class="text-sm font-semibold text-slate-200">B.E. in ECE</div>
+                <div class="text-xs text-slate-400">2024 – 2028 Batch</div>
+              </div>
+              <div class="p-4 rounded-xl bg-dark-850 border border-dark-700/80">
+                <div class="flex items-center gap-2 text-blue-400 text-xs font-mono font-bold mb-1">
+                  <i data-lucide="map-pin" class="w-4 h-4"></i> LOCATION
+                </div>
+                <div class="text-sm font-semibold text-slate-200">Erode, TN, India</div>
+                <div class="text-xs text-slate-400">Open to Relocation</div>
+              </div>
+              <div class="p-4 rounded-xl bg-dark-850 border border-dark-700/80">
+                <div class="flex items-center gap-2 text-emerald-400 text-xs font-mono font-bold mb-1">
+                  <i data-lucide="target" class="w-4 h-4"></i> GOAL
+                </div>
+                <div class="text-sm font-semibold text-slate-200">AI / ML Intern</div>
+                <div class="text-xs text-slate-400">Hands-on Growth</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Currently Exploring -->
+          <div class="lg:col-span-5 space-y-4">
+            <h3 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Currently Exploring
+            </h3>
+
+            <div class="space-y-3">
+              <div class="p-4 rounded-xl bg-dark-850 border border-dark-700/70 hover:border-cyan-500/40 transition-colors">
+                <div class="flex items-start gap-3">
+                  <div class="p-2 rounded-lg bg-dark-900 border border-dark-750 flex-shrink-0 mt-0.5">
+                    <i data-lucide="eye" class="w-5 h-5 text-cyan-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-100">Real-Time Object Detection</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                      Experimenting with YOLOv5 and Ultralytics architectures for low-latency visual detection and custom object classification.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-dark-850 border border-dark-700/70 hover:border-cyan-500/40 transition-colors">
+                <div class="flex items-start gap-3">
+                  <div class="p-2 rounded-lg bg-dark-900 border border-dark-750 flex-shrink-0 mt-0.5">
+                    <i data-lucide="cpu" class="w-5 h-5 text-blue-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-100">Edge AI &amp; Embedded Inference</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                      Converting neural networks to TensorFlow Lite to execute on-device inference on Raspberry Pi without cloud dependency.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-dark-850 border border-dark-700/70 hover:border-cyan-500/40 transition-colors">
+                <div class="flex items-start gap-3">
+                  <div class="p-2 rounded-lg bg-dark-900 border border-dark-750 flex-shrink-0 mt-0.5">
+                    <i data-lucide="network" class="w-5 h-5 text-violet-400"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-slate-100">Agentic AI &amp; LLM Systems</h4>
+                    <p class="text-xs text-slate-400 mt-1 leading-relaxed">
+                      Integrating Gemini API into Django backends to build goal-oriented automation and skill-gap recommendations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            Technical Skills
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            Verified Tools &amp; Competencies
+          </h2>
+          <p class="mt-3 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Honest technical capabilities derived from project implementations and academic exploration. No arbitrary percentage meters.
+          </p>
+          <div class="mt-4 h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Programming -->
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 p-6 flex flex-col justify-between hover:border-cyan-500/30 transition-all shadow-card">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="p-2.5 rounded-xl bg-dark-900 border border-dark-700/80">
+                  <i data-lucide="code-2" class="w-5 h-5 text-cyan-400"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-100">Programming</h3>
+                  <p class="text-xs text-slate-400">Core languages</p>
+                </div>
+              </div>
+              <div class="mt-5 space-y-2.5">
+                <div class="p-2.5 rounded-xl border bg-dark-900/90 border-cyan-500/30">
+                  <div class="flex items-center justify-between">
+                    <span class="font-semibold text-sm text-slate-200 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> Python
+                    </span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/20">Core</span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-1 pl-3.5">Primary language for ML, scripting &amp; backend</p>
+                </div>
+                <div class="p-2.5 rounded-xl border bg-dark-900/90 border-cyan-500/30">
+                  <div class="flex items-center justify-between">
+                    <span class="font-semibold text-sm text-slate-200 flex items-center gap-2">
+                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span> SQL
+                    </span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/20">Core</span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-1 pl-3.5">Relational queries, schema design, joins</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-dark-800 text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Project Verified
+            </div>
+          </div>
+
+          <!-- ML & AI -->
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 p-6 flex flex-col justify-between hover:border-cyan-500/30 transition-all shadow-card">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="p-2.5 rounded-xl bg-dark-900 border border-dark-700/80">
+                  <i data-lucide="brain" class="w-5 h-5 text-blue-400"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-100">Machine Learning</h3>
+                  <p class="text-xs text-slate-400">Vision &amp; Deep Learning</p>
+                </div>
+              </div>
+              <div class="mt-5 space-y-2">
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>YOLOv5 / Ultralytics</strong> &bull; Object detection
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>OpenCV</strong> &bull; Image &amp; video processing
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>NumPy &amp; Pandas</strong> &bull; Data wrangling
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>TensorFlow / TFLite</strong> &bull; Edge models
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>scikit-learn &bull; PyTorch</strong> &bull; Neural workflows
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-dark-800 text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Project Verified
+            </div>
+          </div>
+
+          <!-- Backend & Web -->
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 p-6 flex flex-col justify-between hover:border-cyan-500/30 transition-all shadow-card">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="p-2.5 rounded-xl bg-dark-900 border border-dark-700/80">
+                  <i data-lucide="server" class="w-5 h-5 text-violet-400"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-100">Backend &amp; Web</h3>
+                  <p class="text-xs text-slate-400">APIs &amp; Data Services</p>
+                </div>
+              </div>
+              <div class="mt-5 space-y-2">
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>Django &amp; REST APIs</strong> &bull; Backend endpoints
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>MySQL &amp; SQLite</strong> &bull; Relational models
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>Redis</strong> &bull; Query acceleration
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>JWT Auth</strong> &bull; Stateless tokens
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>HTML5 &amp; CSS3</strong> &bull; Semantic layouts
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-dark-800 text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Project Verified
+            </div>
+          </div>
+
+          <!-- Tools & Platforms -->
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 p-6 flex flex-col justify-between hover:border-cyan-500/30 transition-all shadow-card">
+            <div>
+              <div class="flex items-center gap-3 mb-3">
+                <div class="p-2.5 rounded-xl bg-dark-900 border border-dark-700/80">
+                  <i data-lucide="wrench" class="w-5 h-5 text-emerald-400"></i>
+                </div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-100">Tools &amp; Hardware</h3>
+                  <p class="text-xs text-slate-400">Dev environment &amp; edge</p>
+                </div>
+              </div>
+              <div class="mt-5 space-y-2">
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>Git &amp; GitHub</strong> &bull; Version control
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>Google Colab</strong> &bull; Cloud GPU training
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>Raspberry Pi</strong> &bull; Edge ARM computing
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>VS Code</strong> &bull; Debugging &amp; extensions
+                </div>
+                <div class="p-2 rounded-lg bg-dark-900 border border-dark-800 text-xs text-slate-200">
+                  <strong>Linux CLI</strong> &bull; Shell scripting &amp; tools
+                </div>
+              </div>
+            </div>
+            <div class="mt-5 pt-3 border-t border-dark-800 text-[11px] font-mono text-slate-500 flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400"></i> Project Verified
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="py-20 bg-dark-900/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            Featured Projects
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            Practical Engineering &amp; Prototypes
+          </h2>
+          <p class="mt-3 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Real projects exploring computer vision, agentic backends, and embedded hardware security.
+          </p>
+          <div class="mt-4 h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Project 1: YOLO Disaster -->
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 hover:border-cyan-500/40 transition-all flex flex-col justify-between overflow-hidden shadow-card group">
+            <div class="h-44 w-full bg-gradient-to-br from-dark-850 to-dark-800 p-4 flex flex-col justify-between relative overflow-hidden border-b border-dark-700/60">
+              <div class="absolute inset-0 bg-grid opacity-30"></div>
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-cyan-950/90 text-cyan-400 font-mono text-[11px] border border-cyan-500/30">
+                  <i data-lucide="eye" class="w-3 h-3"></i> YOLOv5 Detection
+                </span>
+                <span class="font-mono text-[10px] text-slate-400 bg-dark-900/80 px-2 py-0.5 rounded border border-dark-700">
+                  Edge ARM &bull; TFLite
+                </span>
+              </div>
+              <div class="relative z-10 my-auto mx-auto w-48 h-20 border border-cyan-400/60 rounded flex flex-col justify-between p-1.5 bg-cyan-500/5">
+                <div class="flex justify-between items-center text-[10px] font-mono text-cyan-300">
+                  <span>class: human</span>
+                  <span>conf: 0.94</span>
+                </div>
+                <div class="flex justify-between items-center text-[9px] font-mono text-slate-400">
+                  <span>[x1, y1, x2, y2]</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="text-[11px] font-mono uppercase tracking-wider text-cyan-400 font-medium">
+                    Computer Vision &amp; AI
+                  </span>
+                  <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-dark-800 text-slate-400 border border-dark-700">
+                    Prototype Completed
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                  YOLO-Based Human Detection for Disaster Management
+                </h3>
+                <p class="mt-2 text-slate-400 text-sm leading-relaxed">
+                  Computer vision pipeline detecting individuals in visual feeds to accelerate search-and-rescue screening in simulated disaster scenarios.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">Python</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">YOLOv5</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">OpenCV</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">TFLite</span>
+              </div>
+
+              <div class="pt-4 border-t border-dark-800 flex items-center justify-between">
+                <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
+                  <span>View Repository</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Agentic Platform -->
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 hover:border-cyan-500/40 transition-all flex flex-col justify-between overflow-hidden shadow-card group">
+            <div class="h-44 w-full bg-gradient-to-br from-dark-850 to-dark-800 p-4 flex flex-col justify-between relative overflow-hidden border-b border-dark-700/60">
+              <div class="absolute inset-0 bg-grid opacity-30"></div>
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-blue-950/90 text-blue-400 font-mono text-[11px] border border-blue-500/30">
+                  <i data-lucide="network" class="w-3 h-3"></i> Gemini Agent
+                </span>
+                <span class="font-mono text-[10px] text-slate-400 bg-dark-900/80 px-2 py-0.5 rounded border border-dark-700">
+                  Django REST &bull; Redis
+                </span>
+              </div>
+              <div class="relative z-10 my-auto flex items-center justify-center gap-2 text-xs font-mono">
+                <div class="px-2.5 py-1 rounded bg-dark-900 border border-dark-700 text-slate-300">User Skills</div>
+                <span class="text-cyan-400">&rarr;</span>
+                <div class="px-2.5 py-1 rounded bg-cyan-950/80 border border-cyan-500/40 text-cyan-300">Gemini LLM</div>
+                <span class="text-cyan-400">&rarr;</span>
+                <div class="px-2.5 py-1 rounded bg-dark-900 border border-dark-700 text-slate-300">Roadmap</div>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="text-[11px] font-mono uppercase tracking-wider text-blue-400 font-medium">
+                    Full-Stack &amp; LLM
+                  </span>
+                  <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-dark-800 text-slate-400 border border-dark-700">
+                    In Development
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                  Agentic AI Platform for Jobs, Internships &amp; Hackathons
+                </h3>
+                <p class="mt-2 text-slate-400 text-sm leading-relaxed">
+                  AI-assisted career aggregator matching candidate skill tags with live postings and delivering personalized skill-gap roadmaps.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">Django</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">Gemini API</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">REST APIs</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">Redis</span>
+              </div>
+
+              <div class="pt-4 border-t border-dark-800 flex items-center justify-between">
+                <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
+                  <span>View Repository</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Telegaurd -->
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 hover:border-cyan-500/40 transition-all flex flex-col justify-between overflow-hidden shadow-card group">
+            <div class="h-44 w-full bg-gradient-to-br from-dark-850 to-dark-800 p-4 flex flex-col justify-between relative overflow-hidden border-b border-dark-700/60">
+              <div class="absolute inset-0 bg-grid opacity-30"></div>
+              <div class="relative z-10 flex items-center justify-between">
+                <span class="flex items-center gap-1.5 px-2.5 py-1 rounded bg-violet-950/90 text-violet-400 font-mono text-[11px] border border-violet-500/30">
+                  <i data-lucide="cpu" class="w-3 h-3"></i> ESP32-CAM &bull; PIR
+                </span>
+                <span class="font-mono text-[10px] text-slate-400 bg-dark-900/80 px-2 py-0.5 rounded border border-dark-700">
+                  Embedded Rig
+                </span>
+              </div>
+              <div class="relative z-10 my-auto flex items-center justify-center gap-3">
+                <div class="px-3 py-1.5 rounded-lg bg-dark-900 border border-dark-700 text-center">
+                  <div class="text-[10px] font-mono text-slate-400">PIR SENSOR</div>
+                  <div class="text-xs font-mono text-emerald-400 font-bold">ARMED</div>
+                </div>
+                <span class="text-violet-400 font-mono">&rarr;</span>
+                <div class="px-3 py-1.5 rounded-lg bg-dark-900 border border-dark-700 text-center">
+                  <div class="text-[10px] font-mono text-slate-400">ESP32-CAM</div>
+                  <div class="text-xs font-mono text-cyan-400 font-bold">CAPTURE</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <span class="text-[11px] font-mono uppercase tracking-wider text-violet-400 font-medium">
+                    IoT &amp; Embedded
+                  </span>
+                  <span class="text-[10px] font-medium px-2 py-0.5 rounded bg-dark-800 text-slate-400 border border-dark-700">
+                    Hardware Validated
+                  </span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-100 group-hover:text-cyan-400 transition-colors">
+                  Telegaurd — ESP32-CAM Smart Surveillance
+                </h3>
+                <p class="mt-2 text-slate-400 text-sm leading-relaxed">
+                  Microcontroller-based IoT surveillance prototype featuring motion-triggered camera capture and local hardware status reporting.
+                </p>
+              </div>
+
+              <div class="flex flex-wrap gap-1.5 pt-2">
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">ESP32-CAM</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">PIR Sensor</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">Arduino Uno</span>
+                <span class="px-2 py-0.5 rounded text-[11px] font-mono bg-dark-900 text-slate-300 border border-dark-750">C++</span>
+              </div>
+
+              <div class="pt-4 border-t border-dark-800 flex items-center justify-between">
+                <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300">
+                  <span>View Repository</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-dark-800 hover:bg-dark-700 text-slate-300">
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            Academics
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            Education &amp; Core Foundations
+          </h2>
+          <p class="mt-3 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Rigorous engineering coursework covering digital systems, signal processing, algorithms, and software engineering.
+          </p>
+          <div class="mt-4 h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="rounded-2xl bg-dark-850 border border-dark-700/80 p-6 sm:p-8 hover:border-cyan-500/40 transition-all shadow-card">
+            
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-dark-750 pb-6">
+              <div class="flex items-start gap-4">
+                <div class="p-3 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/40 text-cyan-400 flex-shrink-0">
+                  <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-slate-100">
+                    Bachelor of Engineering (B.E.) in Electronics and Communication Engineering
+                  </h3>
+                  <p class="text-base text-cyan-400 font-medium mt-0.5">
+                    Sri Shakthi Institute of Engineering and Technology
+                  </p>
+                  <p class="text-sm text-slate-400">
+                    Affiliated with <strong class="text-slate-300">Anna University</strong>
+                  </p>
+                </div>
+              </div>
+
+              <div class="sm:text-right space-y-1 font-mono text-xs text-slate-400 flex-shrink-0">
+                <div class="flex items-center sm:justify-end gap-1.5 text-slate-300">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5 text-cyan-400"></i>
+                  <span>2024 – 2028 (Expected)</span>
+                </div>
+                <div class="flex items-center sm:justify-end gap-1.5">
+                  <i data-lucide="map-pin" class="w-3.5 h-3.5 text-slate-500"></i>
+                  <span>Coimbatore, Tamil Nadu</span>
+                </div>
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-950/80 border border-emerald-500/30 text-emerald-400 font-bold mt-1">
+                  <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                  <span>CGPA: 8.43 / 10.0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 space-y-4">
+              <div>
+                <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold flex items-center gap-1.5 mb-3">
+                  <i data-lucide="book-open" class="w-3.5 h-3.5 text-cyan-400"></i> Key Coursework
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span class="px-3 py-1 rounded-lg text-xs font-mono bg-dark-900 text-slate-300 border border-dark-750">Digital Signal Processing</span>
+                  <span class="px-3 py-1 rounded-lg text-xs font-mono bg-dark-900 text-slate-300 border border-dark-750">Signals and Systems</span>
+                  <span class="px-3 py-1 rounded-lg text-xs font-mono bg-dark-900 text-slate-300 border border-dark-750">Microprocessors &amp; Microcontrollers</span>
+                  <span class="px-3 py-1 rounded-lg text-xs font-mono bg-dark-900 text-slate-300 border border-dark-750">Data Structures &amp; Algorithms with Python</span>
+                  <span class="px-3 py-1 rounded-lg text-xs font-mono bg-dark-900 text-slate-300 border border-dark-750">Database Systems</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- JOURNEY SECTION -->
+    <section id="journey" class="py-20 bg-dark-900/60 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            Progress
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            Experience &amp; Technical Journey
+          </h2>
+          <p class="mt-3 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Documenting self-directed project development, software milestones, and hardware experimentation.
+          </p>
+          <div class="mt-4 h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-8">
+          
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-700/80 hover:border-cyan-500/30 transition-all shadow-card">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-500/20">
+                2024 – Present
+              </span>
+              <span class="text-[11px] font-mono text-slate-500 uppercase">PROJECT MILESTONE</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-100 mb-2">
+              Edge Computer Vision &amp; Deep Learning Exploration
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Initiated hands-on experiments with YOLOv5 and OpenCV. Explored model optimization pipelines to convert deep neural networks into TensorFlow Lite format for deployment on edge devices like Raspberry Pi.
+            </p>
+            <div class="space-y-1.5 pt-3 border-t border-dark-800 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-400 flex-shrink-0"></i>
+                <span>Trained and evaluated custom object detection models on Google Colab GPU runtimes.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyan-400 flex-shrink-0"></i>
+                <span>Engineered real-time video streaming pipelines with OpenCV.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-dark-850 border border-dark-700/80 hover:border-cyan-500/30 transition-all shadow-card">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-blue-950 text-blue-400 border border-blue-500/20">
+                2024
+              </span>
+              <span class="text-[11px] font-mono text-slate-500 uppercase">SOFTWARE ARCHITECTURE</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-100 mb-2">
+              Full-Stack AI Application Architecture
+            </h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-4">
+              Built an end-to-end backend for the Agentic Career Platform using Django, integrating external LLM APIs (Google Gemini) and implementing Redis caching.
+            </p>
+            <div class="space-y-1.5 pt-3 border-t border-dark-800 text-xs text-slate-300">
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-400 flex-shrink-0"></i>
+                <span>Mastered Django REST Framework architecture and serializer design.</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-blue-400 flex-shrink-0"></i>
+                <span>Configured Redis cache acceleration for database queries.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESUME SECTION -->
+    <section id="resume" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            Curriculum Vitae
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            Resume &amp; Qualifications
+          </h2>
+          <p class="mt-3 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Clean, ATS-compliant resume detailing academic credentials, verified project achievements, and technical skill sets.
+          </p>
+          <div class="mt-4 h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <div class="rounded-2xl bg-gradient-to-br from-dark-850 via-dark-800 to-dark-850 border border-dark-700/80 p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+              
+              <div class="space-y-4 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950 text-cyan-400 text-xs font-mono border border-cyan-500/30">
+                  <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+                  <span>ATS-Optimized Format</span>
+                </div>
+
+                <h3 class="text-2xl sm:text-3xl font-bold text-slate-100">
+                  Michael Jacob — Resume
+                </h3>
+
+                <p class="text-sm text-slate-300 max-w-lg leading-relaxed">
+                  Includes full project breakdowns (YOLOv5 Human Detection, Agentic Platform), engineering coursework, programming competencies, and Anna University credentials.
+                </p>
+
+                <div class="flex items-center justify-center md:justify-start gap-1.5 text-xs text-slate-400 font-mono">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5 text-slate-500"></i>
+                  <span>Last Updated: October 2024</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-3.5 w-full sm:w-auto flex-shrink-0">
+                <a href="./resume.html" target="_blank" class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-dark-950 font-bold text-sm hover:brightness-110 shadow-glow-cyan transition-all">
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                  <span>Open Printable Resume (A4)</span>
+                </a>
+                <a href="./resume.pdf" download="Michael_Jacob_Resume.pdf" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-dark-900 hover:bg-dark-750 text-slate-200 hover:text-white border border-dark-700 font-semibold text-sm transition-all">
+                  <i data-lucide="download" class="w-4 h-4 text-cyan-400"></i>
+                  <span>Download PDF Document</span>
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-20 bg-dark-900/80 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium tracking-wide bg-cyan-950/80 text-cyan-400 border border-cyan-500/30 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+            Get in Touch
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100 tracking-tight">
+            Let's Connect
+          </h2>
+          <p class="mt-3 text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+            Interested in hiring an AI/ML intern or collaborating on technical projects? Feel free to reach out directly.
+          </p>
+          <div class="mt-4 h-1 w-16 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full mx-auto"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 max-w-5xl mx-auto">
+          
+          <div class="lg:col-span-5 space-y-6">
+            <div class="p-6 rounded-2xl bg-dark-850 border border-dark-700/80 space-y-6">
+              <h3 class="text-lg font-bold text-slate-100 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span> Direct Communication
+              </h3>
+
+              <div class="space-y-2">
+                <div class="flex items-center gap-2.5 text-xs font-mono text-slate-400">
+                  <i data-lucide="mail" class="w-4 h-4 text-cyan-400"></i>
+                  <span>EMAIL ADDRESS</span>
+                </div>
+                <div>
+                  <a href="mailto:michaeljacobd2211@gmail.com" class="text-sm font-semibold text-slate-200 hover:text-cyan-400 transition-colors block">
+                    michaeljacobd2211@gmail.com
+                  </a>
+                  <button onclick="navigator.clipboard.writeText('michaeljacobd2211@gmail.com'); alert('Email copied to clipboard!');" class="mt-2 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-dark-800 border border-dark-700 text-xs font-mono text-slate-300 hover:text-cyan-400">
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copy to Clipboard
+                  </button>
+                </div>
+              </div>
+
+              <div class="space-y-1.5 pt-4 border-t border-dark-800">
+                <div class="flex items-center gap-2.5 text-xs font-mono text-slate-400">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-blue-400"></i>
+                  <span>LOCATION</span>
+                </div>
+                <div class="text-sm text-slate-200">Erode, Tamil Nadu, India</div>
+                <div class="text-xs text-slate-400">Open to on-site &amp; remote roles.</div>
+              </div>
+
+              <div class="space-y-1.5 pt-4 border-t border-dark-800">
+                <div class="flex items-center gap-2.5 text-xs font-mono text-slate-400">
+                  <i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i>
+                  <span>PHONE / WHATSAPP</span>
+                </div>
+                <a href="tel:+918122614563" class="text-sm text-slate-200 hover:text-cyan-400 font-mono">
+                  +91 8122614563
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="lg:col-span-7">
+            <div class="p-6 sm:p-8 rounded-2xl bg-dark-850 border border-dark-700/80 shadow-card">
+              <div class="mb-6">
+                <h3 class="text-lg font-bold text-slate-100">Send a Direct Message</h3>
+                <p class="text-xs text-slate-400 mt-1">
+                  Fill in your details below. Your default mail client will open with pre-filled content.
+                </p>
+              </div>
+
+              <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 mb-1.5">YOUR NAME *</label>
+                  <input type="text" id="form-name" required placeholder="e.g. Alex Morgan" class="w-full px-4 py-2.5 rounded-xl bg-dark-900 border border-dark-750 focus:border-cyan-500 text-slate-100 text-sm focus:outline-none">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 mb-1.5">YOUR EMAIL *</label>
+                  <input type="email" id="form-email" required placeholder="e.g. alex@example.com" class="w-full px-4 py-2.5 rounded-xl bg-dark-900 border border-dark-750 focus:border-cyan-500 text-slate-100 text-sm focus:outline-none">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 mb-1.5">SUBJECT</label>
+                  <input type="text" id="form-subject" placeholder="e.g. AI / ML Internship Opportunity" class="w-full px-4 py-2.5 rounded-xl bg-dark-900 border border-dark-750 focus:border-cyan-500 text-slate-100 text-sm focus:outline-none">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-slate-300 mb-1.5">MESSAGE *</label>
+                  <textarea id="form-message" rows="4" required placeholder="Share role details or questions..." class="w-full px-4 py-2.5 rounded-xl bg-dark-900 border border-dark-750 focus:border-cyan-500 text-slate-100 text-sm focus:outline-none resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-dark-950 font-bold text-sm hover:brightness-110 shadow-glow-cyan transition-all">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Send Message (via Email)</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark-950 border-t border-dark-800 py-12 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="text-center md:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-2">
+            <span class="font-extrabold text-lg text-slate-100">Michael Jacob</span>
+            <span class="text-xs px-2 py-0.5 rounded bg-dark-800 text-cyan-400 font-mono border border-dark-700">AI / ML</span>
+          </div>
+          <p class="text-slate-400 text-sm mt-1 max-w-sm">
+            Electronics &amp; Communication Engineering student building practical AI and computer vision solutions.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/MichaelJacob22" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-dark-800 border border-dark-700 text-slate-300 hover:text-cyan-400">
+            <i data-lucide="github" class="w-4 h-4"></i>
+          </a>
+          <a href="https://linkedin.com/in/michaeljacobd" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-lg bg-dark-800 border border-dark-700 text-slate-300 hover:text-cyan-400">
+            <i data-lucide="linkedin" class="w-4 h-4"></i>
+          </a>
+          <a href="mailto:michaeljacobd2211@gmail.com" class="p-2.5 rounded-lg bg-dark-800 border border-dark-700 text-slate-300 hover:text-cyan-400">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <div>
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-dark-850 hover:bg-dark-800 text-slate-300 hover:text-cyan-400 border border-dark-700 text-xs font-medium">
+            <span>Back to Top</span>
+            <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="mt-8 pt-8 border-t border-dark-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+        <p>&copy; <span id="current-year"></span> Michael Jacob. All verified project &amp; academic information.</p>
+        <p>Built with modern web standards &bull; ATS Compliant</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Set current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Handle Contact Form Submit via Mailto
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const email = document.getElementById('form-email').value;
+      const subject = document.getElementById('form-subject').value || ('Inquiry from ' + name);
+      const message = document.getElementById('form-message').value;
+
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+      window.location.href = 'mailto:michaeljacobd2211@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + body;
+    }
+  </script>
+</body>
+</html>

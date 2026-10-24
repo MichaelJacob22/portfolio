@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Michael Jacob - Resume</title>
+<style>
+  @page {
+    size: A4 portrait;
+    margin: 10mm 14mm 10mm 14mm;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #1a202c;
+    padding: 24px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .toolbar {
+    width: 100%;
+    max-width: 210mm;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .toolbar button {
+    background: #1a365d;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .toolbar button:hover {
+    background: #2b6cb0;
+  }
+  .resume-sheet {
+    background: #ffffff;
+    width: 210mm;
+    min-height: 297mm;
+    padding: 12mm 16mm;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  .resume-header {
+    text-align: center;
+    border-bottom: 2px solid #1a365d;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 24pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #1a365d;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .subhead {
+    font-size: 10pt;
+    font-weight: 600;
+    letter-spacing: 2.2px;
+    color: #4a5568;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .contact-bar {
+    font-size: 9pt;
+    color: #4a5568;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+  .contact-bar a {
+    color: #1a365d;
+    text-decoration: none;
+  }
+  .pipe {
+    color: #cbd5e0;
+  }
+  section {
+    margin-bottom: 11px;
+  }
+  .section-title {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1a365d;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 1.5px solid #2b6cb0;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+  }
+  .summary-p {
+    font-size: 9.2pt;
+    line-height: 1.38;
+    color: #2d3748;
+    text-align: justify;
+  }
+  .two-col-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9.6pt;
+    font-weight: 700;
+    color: #1a202c;
+  }
+  .two-col-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 9pt;
+    color: #4a5568;
+    margin-top: 1px;
+    margin-bottom: 4px;
+  }
+  .two-col-sub .badge {
+    font-weight: 700;
+    color: #1a365d;
+  }
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5px;
+    font-size: 9pt;
+  }
+  .skill-item {
+    display: grid;
+    grid-template-columns: 185px 1fr;
+    line-height: 1.35;
+  }
+  .skill-lbl {
+    font-weight: 700;
+    color: #2d3748;
+  }
+  .skill-val {
+    color: #333333;
+  }
+  .project-block {
+    margin-bottom: 8px;
+  }
+  .project-tech {
+    font-size: 8.8pt;
+    color: #4a5568;
+    font-style: italic;
+    margin: 1px 0 2px 0;
+  }
+  .project-tech strong {
+    font-style: normal;
+    color: #2d3748;
+  }
+  ul.custom-bullets {
+    list-style-type: disc;
+    padding-left: 17px;
+    margin: 0;
+  }
+  ul.custom-bullets li {
+    font-size: 9pt;
+    line-height: 1.35;
+    color: #2d3748;
+    margin-bottom: 2px;
+    text-align: justify;
+  }
+  @media print {
+    body {
+      background: #ffffff;
+      padding: 0;
+    }
+    .toolbar {
+      display: none !important;
+    }
+    .resume-sheet {
+      box-shadow: none;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <div>
+      <strong>Michael Jacob — Resume</strong>
+      <div style="font-size: 12px; color: #718096;">Single Page A4 &bull; ATS Compliant</div>
+    </div>
+    <button onclick="window.print()">Print / Save as PDF</button>
+  </div>
+
+  <div class="resume-sheet">
+    <header class="resume-header">
+      <h1>Michael Jacob</h1>
+      <div class="subhead">Machine Learning &bull; Artificial Intelligence</div>
+      <div class="contact-bar">
+        <span>Erode, Tamil Nadu</span>
+        <span class="pipe">|</span>
+        <span>+91 8122614563</span>
+        <span class="pipe">|</span>
+        <a href="mailto:michaeljacobd2211@gmail.com">michaeljacobd2211@gmail.com</a>
+        <span class="pipe">|</span>
+        <a href="https://linkedin.com/in/michaeljacobd" target="_blank">linkedin.com/in/michaeljacobd</a>
+        <span class="pipe">|</span>
+        <a href="https://github.com/MichaelJacob22" target="_blank">github.com/MichaelJacob22</a>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-p">
+        B.E. Electronics and Communication Engineering student (2024–2028; CGPA: 8.43) focused on machine learning and artificial intelligence. Hands-on project experience with YOLOv5 and OpenCV for real-time computer vision and human detection, complemented by strong foundations in ML libraries and full-stack AI application development. Seeking Machine Learning or AI internship opportunities.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Education</div>
+      <div class="two-col-header">
+        <span>Sri Shakthi Institute of Engineering and Technology (Anna University)</span>
+        <span>2024 – 2028</span>
+      </div>
+      <div class="two-col-sub">
+        <span>Bachelor of Engineering (B.E.) in Electronics and Communication Engineering</span>
+        <span class="badge">CGPA: 8.43 / 10.0</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Technical Skills</div>
+      <div class="skills-container">
+        <div class="skill-item">
+          <span class="skill-lbl">Programming Languages:</span>
+          <span class="skill-val">Python, SQL</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-lbl">ML & AI Tools:</span>
+          <span class="skill-val">YOLOv5 / Ultralytics, OpenCV, NumPy, Pandas, scikit-learn, PyTorch, TensorFlow, TensorFlow Lite</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-lbl">Backend & Web:</span>
+          <span class="skill-val">Django, REST APIs, HTML5, CSS3, MySQL, SQLite, Redis, JWT Authentication</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-lbl">Tools & Platforms:</span>
+          <span class="skill-val">Git, GitHub, Google Colab, Raspberry Pi, Linux CLI</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Selected Projects</div>
+      <div class="project-block">
+        <div class="two-col-header">
+          <span>YOLO-Based Human Detection for Disaster Management</span>
+          <span style="font-weight: 500; font-size: 8.5pt; color: #4a5568;">Edge AI &bull; Computer Vision</span>
+        </div>
+        <div class="project-tech"><strong>Tech Stack:</strong> Python, YOLOv5, OpenCV, Google Colab, TensorFlow Lite, Raspberry Pi</div>
+        <ul class="custom-bullets">
+          <li>Built a YOLOv5-based human-detection prototype to help identify people in images and video, supporting faster visual screening in disaster-response scenarios.</li>
+          <li>Combined YOLOv5 and OpenCV for image/video analysis, creating a repeatable workflow for testing human-detection scenarios in Google Colab.</li>
+          <li>Explored TensorFlow Lite deployment on edge devices such as Raspberry Pi, with the goal of enabling on-device inference where connectivity or compute resources are limited.</li>
+        </ul>
+      </div>
+
+      <div class="project-block">
+        <div class="two-col-header">
+          <span>Agentic AI Platform for Jobs, Internships & Hackathons</span>
+          <span style="font-weight: 500; font-size: 8.5pt; color: #4a5568;">Full-Stack &bull; LLM Agent</span>
+        </div>
+        <div class="project-tech"><strong>Tech Stack:</strong> Python, Django, Gemini API, REST APIs, SQLite, Redis</div>
+        <ul class="custom-bullets">
+          <li>Designed an AI-assisted opportunity platform that filters jobs, internships, and hackathons by users’ skills and preferences, helping focus searches on relevant openings.</li>
+          <li>Integrated Gemini API recommendations and skill-gap analysis into a Django backend to help users identify relevant opportunities and areas for learning.</li>
+          <li>Developed performant Django REST backend services with Redis caching to accelerate opportunity search and matching queries.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Technical Competencies & Highlights</div>
+      <ul class="custom-bullets">
+        <li><strong>Machine Learning & CV:</strong> Experienced in data preprocessing with NumPy/Pandas, model inference, and lightweight on-device deployment using TFLite.</li>
+        <li><strong>Backend Engineering:</strong> Skilled in designing RESTful APIs, relational data modeling (MySQL/SQLite), Redis caching, and authentication workflows.</li>
+        <li><strong>Developer Tooling:</strong> Proficient with Git and GitHub version control workflows, collaborative tracking, and model experimentation in Google Colab.</li>
+      </ul>
+    </section>
+  </div>
+</body>
+</html>
